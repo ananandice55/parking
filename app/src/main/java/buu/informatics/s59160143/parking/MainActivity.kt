@@ -133,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         var showName = name.text
         findViewById<Button>(R.id.button_update).setOnClickListener {
             park.add(2, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
-            parkThree.setText("เต็ม \n" + park.get(2).register+ "\n"+park.get(2).brand+"\n"+park.get(2).name).toString()
+            parkThree.setText("เต็ม \n" + park.get(2).register+ "\n"+park.get(2).brand+ " \n "+park.get(2).name).toString()
         }
     }
 }

@@ -26,25 +26,29 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.button_two).setOnClickListener {
-            //click2()
+            clickParkTwo()
         }
 
         findViewById<Button>(R.id.button_three).setOnClickListener {
-            //click3()
+            clickParkThree()
 
         }
     }
     fun clickParkOne() {
+
         val parkOne = findViewById<Button>(R.id.button_one)
 
-        val register = findViewById<EditText>(R.id.register_edit)
-        val brand = findViewById<EditText>(R.id.brand_edit)
-        val name = findViewById<EditText>(R.id.name_edit)
-
+        var register = findViewById<EditText>(R.id.register_edit)
+        var brand = findViewById<EditText>(R.id.brand_edit)
+        var name = findViewById<EditText>(R.id.name_edit)
+        register.text = null
+        brand.text = null
+        name.text = null
 
         var showRegister = register.text
         var showBrand = brand.text
         var showName = name.text
+
         findViewById<Button>(R.id.button_update).setOnClickListener {
             park.add(0, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
             parkOne.setText("เต็ม").toString()
@@ -52,5 +56,44 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun clickParkTwo() {
+        val parkTwo = findViewById<Button>(R.id.button_two)
 
+        val register = findViewById<EditText>(R.id.register_edit)
+        val brand = findViewById<EditText>(R.id.brand_edit)
+        val name = findViewById<EditText>(R.id.name_edit)
+
+        register.text = null
+        brand.text = null
+        name.text = null
+
+        var showRegister = register.text
+        var showBrand = brand.text
+        var showName = name.text
+        findViewById<Button>(R.id.button_update).setOnClickListener {
+            park.add(1, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
+            parkTwo.setText("เต็ม").toString()
+
+        }
     }
+
+    fun clickParkThree() {
+        val parkThree = findViewById<Button>(R.id.button_three)
+
+        val register = findViewById<EditText>(R.id.register_edit)
+        val brand = findViewById<EditText>(R.id.brand_edit)
+        val name = findViewById<EditText>(R.id.name_edit)
+
+        register.text = null
+        brand.text = null
+        name.text = null
+
+        var showRegister = register.text
+        var showBrand = brand.text
+        var showName = name.text
+        findViewById<Button>(R.id.button_update).setOnClickListener {
+            park.add(2, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
+            parkThree.setText("เต็ม").toString()
+        }
+    }
+}

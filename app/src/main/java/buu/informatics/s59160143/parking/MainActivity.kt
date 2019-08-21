@@ -5,41 +5,43 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import androidx.databinding.DataBindingUtil
+import buu.informatics.s59160143.parking.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private val park: ArrayList<Parking> = ArrayList<Parking>()
-
+    private  lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        val Button_one: Button = findViewById(R.id.button_one)
-        val Button_two: Button = findViewById(R.id.button_two)
-        val Button_three: Button = findViewById(R.id.button_three)
+        val Button_one: Button = binding.buttonOne
+        val Button_two: Button = binding.buttonTwo
+        val Button_three: Button = binding.buttonThree
 
         for (i in 0..2) {
             park.add(i, Parking("", "", ""))
         }
 
-        findViewById<Button>(R.id.button_one).setOnClickListener {
+        binding.buttonOne.setOnClickListener {
             clickParkOne()
             clickDeleteOne()
         }
 
-        findViewById<Button>(R.id.button_two).setOnClickListener {
+        binding.buttonTwo.setOnClickListener {
             clickParkTwo()
             clickDeleteTwo()
         }
 
-        findViewById<Button>(R.id.button_three).setOnClickListener {
+        binding.buttonThree.setOnClickListener {
             clickParkThree()
             clickDeleteThree()
         }
     }
 
     fun clickDeleteOne() {
-        val parkOne = findViewById<Button>(R.id.button_one)
-        findViewById<Button>(R.id.button_delete).setOnClickListener {
+        val parkOne = binding.buttonOne
+        binding.buttonDelete.setOnClickListener {
             parkOne.setText("ว่าง").toString()
             var register = findViewById<EditText>(R.id.register_edit)
             var brand = findViewById<EditText>(R.id.brand_edit)
@@ -51,12 +53,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickDeleteTwo() {
-        val parkTwo = findViewById<Button>(R.id.button_two)
-        findViewById<Button>(R.id.button_delete).setOnClickListener {
+        val parkTwo = binding.buttonTwo
+        binding.buttonDelete.setOnClickListener {
             parkTwo.setText("ว่าง").toString()
-            var register = findViewById<EditText>(R.id.register_edit)
-            var brand = findViewById<EditText>(R.id.brand_edit)
-            var name = findViewById<EditText>(R.id.name_edit)
+            var register = binding.registerEdit
+            var brand = binding.brandEdit
+            var name = binding.nameEdit
             register.text = null
             brand.text = null
             name.text = null
@@ -64,11 +66,11 @@ class MainActivity : AppCompatActivity() {
     }
     fun clickDeleteThree() {
         val parkThree = findViewById<Button>(R.id.button_three)
-        findViewById<Button>(R.id.button_delete).setOnClickListener {
+        binding.buttonDelete.setOnClickListener {
             parkThree.setText("ว่าง").toString()
-            var register = findViewById<EditText>(R.id.register_edit)
-            var brand = findViewById<EditText>(R.id.brand_edit)
-            var name = findViewById<EditText>(R.id.name_edit)
+            var register = binding.registerEdit
+            var brand = binding.brandEdit
+            var name = binding.nameEdit
             register.text = null
             brand.text = null
             name.text = null
@@ -76,11 +78,11 @@ class MainActivity : AppCompatActivity() {
     }
     fun clickParkOne() {
 
-        val parkOne = findViewById<Button>(R.id.button_one)
+        val parkOne = binding.buttonOne
 
-        var register = findViewById<EditText>(R.id.register_edit)
-        var brand = findViewById<EditText>(R.id.brand_edit)
-        var name = findViewById<EditText>(R.id.name_edit)
+        var register = binding.registerEdit
+        var brand = binding.brandEdit
+        var name = binding.nameEdit
         register.text = null
         brand.text = null
         name.text = null
@@ -89,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         var showBrand = brand.text
         var showName = name.text
 
-        findViewById<Button>(R.id.button_update).setOnClickListener {
+        binding.buttonUpdate.setOnClickListener {
             park.add(0, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
             parkOne.setText("เต็ม \n" + park.get(0).register+ "\n"+park.get(0).brand+"\n"+park.get(0).name).toString()
 
@@ -97,11 +99,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickParkTwo() {
-        val parkTwo = findViewById<Button>(R.id.button_two)
+        val parkTwo = binding.buttonTwo
 
-        val register = findViewById<EditText>(R.id.register_edit)
-        val brand = findViewById<EditText>(R.id.brand_edit)
-        val name = findViewById<EditText>(R.id.name_edit)
+        var register = binding.registerEdit
+        var brand = binding.brandEdit
+        var name = binding.nameEdit
 
         register.text = null
         brand.text = null
@@ -118,11 +120,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickParkThree() {
-        val parkThree = findViewById<Button>(R.id.button_three)
+        val parkThree = binding.buttonThree
 
-        val register = findViewById<EditText>(R.id.register_edit)
-        val brand = findViewById<EditText>(R.id.brand_edit)
-        val name = findViewById<EditText>(R.id.name_edit)
+        var register = binding.registerEdit
+        var brand = binding.brandEdit
+        var name = binding.nameEdit
 
         register.text = null
         brand.text = null
@@ -131,7 +133,7 @@ class MainActivity : AppCompatActivity() {
         var showRegister = register.text
         var showBrand = brand.text
         var showName = name.text
-        findViewById<Button>(R.id.button_update).setOnClickListener {
+        binding.buttonUpdate.setOnClickListener {
             park.add(2, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
             parkThree.setText("เต็ม \n" + park.get(2).register+ "\n"+park.get(2).brand+ " \n "+park.get(2).name).toString()
         }

@@ -5,4 +5,7 @@
     <string name="Button_three">ว่าง</string>
     <string name="Button_update">update</string>
     <string name="Button_delete">delete</string>
+    <string name="register_is">ทะเบียนรถ</string>
+    <string name="barn_is">ยี่ห้อ</string>
+    <string name="name_is">คนขับ</string>
 </resources>

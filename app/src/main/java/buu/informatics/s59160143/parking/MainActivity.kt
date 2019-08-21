@@ -23,15 +23,47 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button_one).setOnClickListener {
             clickParkOne()
+            clickDeleteOne()
         }
 
         findViewById<Button>(R.id.button_two).setOnClickListener {
             clickParkTwo()
+            clickDeleteTwo()
         }
 
         findViewById<Button>(R.id.button_three).setOnClickListener {
             clickParkThree()
 
+        }
+        findViewById<Button>(R.id.button_delete).setOnClickListener {
+            clickParkThree()
+
+        }
+    }
+
+    fun clickDeleteOne() {
+        val parkOne = findViewById<Button>(R.id.button_one)
+        findViewById<Button>(R.id.button_delete).setOnClickListener {
+            parkOne.setText("ว่าง").toString()
+            var register = findViewById<EditText>(R.id.register_edit)
+            var brand = findViewById<EditText>(R.id.brand_edit)
+            var name = findViewById<EditText>(R.id.name_edit)
+            register.text = null
+            brand.text = null
+            name.text = null
+        }
+    }
+
+    fun clickDeleteTwo() {
+        val parkTwo = findViewById<Button>(R.id.button_two)
+        findViewById<Button>(R.id.button_delete).setOnClickListener {
+            parkTwo.setText("ว่าง").toString()
+            var register = findViewById<EditText>(R.id.register_edit)
+            var brand = findViewById<EditText>(R.id.brand_edit)
+            var name = findViewById<EditText>(R.id.name_edit)
+            register.text = null
+            brand.text = null
+            name.text = null
         }
     }
     fun clickParkOne() {
@@ -51,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button_update).setOnClickListener {
             park.add(0, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
-            parkOne.setText("เต็ม").toString()
+            parkOne.setText("เต็ม \n" + park.get(0).register+ "\n"+park.get(0).brand+"\n"+park.get(0).name).toString()
 
         }
     }
@@ -72,7 +104,7 @@ class MainActivity : AppCompatActivity() {
         var showName = name.text
         findViewById<Button>(R.id.button_update).setOnClickListener {
             park.add(1, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
-            parkTwo.setText("เต็ม").toString()
+            parkTwo.setText("เต็ม \n" + park.get(1).register+ "\n"+park.get(1).brand+"\n"+park.get(1).name).toString()
 
         }
     }
@@ -93,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         var showName = name.text
         findViewById<Button>(R.id.button_update).setOnClickListener {
             park.add(2, Parking(showRegister.toString(), showBrand.toString(), showName.toString()))
-            parkThree.setText("เต็ม").toString()
+            parkThree.setText("เต็ม \n" + park.get(2).register+ "\n"+park.get(2).brand+"\n"+park.get(2).name).toString()
         }
     }
 }

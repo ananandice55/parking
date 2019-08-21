@@ -33,11 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.button_three).setOnClickListener {
             clickParkThree()
-
-        }
-        findViewById<Button>(R.id.button_delete).setOnClickListener {
-            clickParkThree()
-
+            clickDeleteThree()
         }
     }
 
@@ -58,6 +54,18 @@ class MainActivity : AppCompatActivity() {
         val parkTwo = findViewById<Button>(R.id.button_two)
         findViewById<Button>(R.id.button_delete).setOnClickListener {
             parkTwo.setText("ว่าง").toString()
+            var register = findViewById<EditText>(R.id.register_edit)
+            var brand = findViewById<EditText>(R.id.brand_edit)
+            var name = findViewById<EditText>(R.id.name_edit)
+            register.text = null
+            brand.text = null
+            name.text = null
+        }
+    }
+    fun clickDeleteThree() {
+        val parkThree = findViewById<Button>(R.id.button_three)
+        findViewById<Button>(R.id.button_delete).setOnClickListener {
+            parkThree.setText("ว่าง").toString()
             var register = findViewById<EditText>(R.id.register_edit)
             var brand = findViewById<EditText>(R.id.brand_edit)
             var name = findViewById<EditText>(R.id.name_edit)

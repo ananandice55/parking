@@ -1,5 +1,6 @@
 package buu.informatics.s59160143.parking
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
 import buu.informatics.s59160143.parking.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val park: ArrayList<Parking> = ArrayList<Parking>()
@@ -77,7 +79,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun clickParkOne() {
-
+        binding.buttonOne.setBackgroundColor(Color.GREEN)
+        binding.buttonTwo.setBackgroundResource(android.R.drawable.btn_default)
+        binding.buttonThree.setBackgroundResource(android.R.drawable.btn_default)
         val parkOne = binding.buttonOne
 
         var register = binding.registerEdit
@@ -99,6 +103,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickParkTwo() {
+        binding.buttonTwo.setBackgroundColor(Color.GREEN)
+        binding.buttonOne.setBackgroundResource(android.R.drawable.btn_default)
+        binding.buttonThree.setBackgroundResource(android.R.drawable.btn_default)
         val parkTwo = binding.buttonTwo
 
         var register = binding.registerEdit
@@ -120,6 +127,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun clickParkThree() {
+        binding.buttonThree.setBackgroundColor(Color.GREEN)
+        binding.buttonOne.setBackgroundResource(android.R.drawable.btn_default)
+        binding.buttonTwo.setBackgroundResource(android.R.drawable.btn_default)
         val parkThree = binding.buttonThree
 
         var register = binding.registerEdit

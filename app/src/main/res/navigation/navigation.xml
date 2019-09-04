@@ -9,4 +9,6 @@
     </fragment>
     <fragment android:id="@+id/parkingFragment4" android:name="buu.informatics.s59160143.parking.parkingFragment"
               android:label="parkingFragment"/>
+    <fragment android:id="@+id/aboutFragment" android:name="buu.informatics.s59160143.parking.AboutFragment"
+              android:label="fragment_about" tools:layout="@layout/fragment_about"/>
 </navigation>

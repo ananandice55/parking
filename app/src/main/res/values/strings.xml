@@ -23,4 +23,7 @@
     <string name="username_EditText"/>
     <string name="password_EditText"/>
     <string name="button_click">Login</string>
+    <string name="about">About</string>
+    <string name="text_about">Profile</string>
+    <string name="name_text">Anan Khaita</string>
 </resources>

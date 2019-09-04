@@ -4,11 +4,11 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation"
             app:startDestination="@id/loginFragment2">
     <fragment android:id="@+id/loginFragment2" android:name="buu.informatics.s59160143.parking.LoginFragment"
-              android:label="LoginFragment">
+              android:label="Login">
         <action app:destination="@id/parkingFragment4" android:id="@+id/toParking"/>
     </fragment>
     <fragment android:id="@+id/parkingFragment4" android:name="buu.informatics.s59160143.parking.parkingFragment"
-              android:label="parkingFragment"/>
-    <fragment android:id="@+id/aboutFragment" android:name="buu.informatics.s59160143.parking.AboutFragment"
-              android:label="fragment_about" tools:layout="@layout/fragment_about"/>
+              android:label="parking"/>
+    <fragment android:id="@+id/aboutFragment2" android:name="buu.informatics.s59160143.parking.AboutFragment"
+              android:label="Profile" tools:layout="@layout/fragment_about"/>
 </navigation>

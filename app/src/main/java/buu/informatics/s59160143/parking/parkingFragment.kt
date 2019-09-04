@@ -3,13 +3,13 @@ package buu.informatics.s59160143.parking
 
 import android.graphics.Color
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import buu.informatics.s59160143.parking.databinding.FragmentParkingBinding
 
 
@@ -30,7 +30,7 @@ class parkingFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_parking,container,false)
-
+        setHasOptionsMenu(true)
         val Button_one: Button = binding.buttonOne
         val Button_two: Button = binding.buttonTwo
         val Button_three: Button = binding.buttonThree
@@ -55,6 +55,18 @@ class parkingFragment : Fragment() {
         }
         return binding.root
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.about, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(item!!,
+            view!!.findNavController())
+                || super.onOptionsItemSelected(item)
+    }
+
 
     fun clickDeleteOne() {
         val parkOne = binding.buttonOne

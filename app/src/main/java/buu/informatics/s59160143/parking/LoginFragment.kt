@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import buu.informatics.s59160143.parking.databinding.FragmentLoginBinding
 
 
 // TODO: Rename parameter arguments, choose names that match
@@ -24,7 +27,22 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        val binding: FragmentLoginBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_login, container, false)
+        binding.buttonClick.setOnClickListener { view ->
+            binding.apply {
+                var username = usernameEditText.text.toString()
+                var password = passwordEditText.text.toString()
+                if(username.equals("admin") && password.equals("12345678")){
+                    view.findNavController().navigate(R.id.toParking)
+                }else{
+//                    warningText.text = "Username or Password is not Match!!"
+//                    warningText.visibility = View.VISIBLE
+                }
+            }
+        }
+        setHasOptionsMenu(true)
+        return binding.root
     }
 
 
